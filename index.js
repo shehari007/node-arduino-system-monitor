@@ -14,11 +14,11 @@ board.on("ready", function () {
   setInterval(() => {
     si.currentLoad()
       .then(data => {
-        // console.log('Current CPU Load:', data);
-        // console.log('Current CPU Load (in percentage):', data.currentLoad);
+        console.log('Current CPU Load:', data);
+        console.log('Current CPU Load (in percentage):', data.currentLoad);
         lcd.cursor(0, 0).print('CPU:');
         lcd.cursor(0, 4).print(parseInt(data.currentLoad)+'%');
-        parseInt(data.currentLoad)>85?led.blink(500): led.stop().off();
+        parseInt(data.currentLoad)>85?led.blink(400): led.stop().off();
       })
       .catch(error => {
         lcd.cursor(0, 0).print('CPU: ERR');
@@ -32,9 +32,9 @@ board.on("ready", function () {
     si.networkStats(iface, function (data) {
 
       lcd.cursor(1, 0).print('UP:' + (data[0].tx_sec / 1048576).toFixed(1))
-      lcd.cursor(1, 10).print('DW:' + (data[0].rx_sec / 1048576).toFixed(1))
+      lcd.cursor(1, 10).print('DN:' + (data[0].rx_sec / 1048576).toFixed(1))
     })
     lcd.cursor(0, 4)
     lcd.print('     ')
-  }, 1500)
+  }, 850)
 });
