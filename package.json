@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "Muhammad Sheharyar Butt",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@serialport/list": "^12.0.0",
     "cpu-stat": "^2.0.1",
